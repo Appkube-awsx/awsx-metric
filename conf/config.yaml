@@ -1,0 +1,8 @@
+server:
+  address: localhost
+  port: 7008
+  cors_allow_all: true
+  white_list_urls: http://localhost:3002
+cloudelement:
+  url: http://api.synectiks.net/cmdb
+  element_key: CLOUD-ELEMENT

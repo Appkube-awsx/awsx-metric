@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "836a2004-0df8-4f9e-aa75-696d07ce1093",
+		"name": "Cloud-Watch-Metric-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28214167"
+	},
+	"item": [
+		{
+			"name": "get-cloud-watch-metric",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"zone\": \"us-east-1\",\r\n    \"accessKey\": \"your accessKey\",\r\n    \"secretKey\": \"your secretKey\",\r\n    \"externalId\": \"your externalId\",\r\n    \"crossAccountRoleArn\": \"your crossAccountRoleArn\",\r\n    \"cloudWatchQueries\": \"[{\\\"RefID\\\": \\\"A\\\",\\\"MaxDataPoint\\\": 100,\\\"Interval\\\": 60,\\\"TimeRange\\\": {\\\"From\\\": \\\"\\\",\\\"To\\\": \\\"\\\",\\\"TimeZone\\\": \\\"UTC\\\"},\\\"Query\\\": [{\\\"Namespace\\\": \\\"AWS/EC2\\\",\\\"MetricName\\\": \\\"CPUUtilization\\\",\\\"Period\\\": 300,\\\"Stat\\\": \\\"Average\\\",\\\"Dimensions\\\": [{\\\"Name\\\": \\\"InstanceId\\\",\\\"Value\\\": \\\"i-05e4e6757f13da657\\\"}]}]}]\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7008/awsx-metric/metric/multi-queries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7008",
+					"path": [
+						"awsx-metric",
+						"metric",
+						"multi-queries"
+					],
+					"query": [
+						{
+							"key": "cloudElementId",
+							"value": "1931",
+							"disabled": true
+						},
+						{
+							"key": "cloudElementApiUrl",
+							"value": "http://34.199.12.114:6057/api/cloud-element/cloud-creds",
+							"disabled": true
+						},
+						{
+							"key": "cloudWatchQueries",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "accessKey",
+							"value": "AKIA476GXAZTQT67566F",
+							"disabled": true
+						},
+						{
+							"key": "secretKey",
+							"value": "n1qfH5rG4mpdE+PT2ac/3Xiif5/pNxNeFTHQUGQ+",
+							"disabled": true
+						},
+						{
+							"key": "crossAccountRoleArn",
+							"value": "arn:aws:iam::657907747545:role/CrossAccount",
+							"disabled": true
+						},
+						{
+							"key": "externalId",
+							"value": "DJ6@a8hzG@xkFwSvLmkSR5SN",
+							"disabled": true
+						},
+						{
+							"key": "zone",
+							"value": "us-east-1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
