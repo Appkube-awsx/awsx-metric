@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/Appkube-awsx/awsx-common v1.2.2
-	github.com/Appkube-awsx/awsx-metric-cli v1.1.0
+	github.com/Appkube-awsx/awsx-metric-cli v1.1.1
 	github.com/aws/aws-sdk-go v1.44.246
 	github.com/gorilla/mux v1.8.1
 	github.com/prometheus/client_golang v1.17.0

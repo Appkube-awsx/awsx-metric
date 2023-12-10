@@ -5,4 +5,3 @@ server:
   white_list_urls: http://localhost:3002
 cloudelement:
   url: http://api.synectiks.net/cmdb
-  element_key: CLOUD-ELEMENT

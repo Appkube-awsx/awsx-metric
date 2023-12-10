@@ -4,7 +4,7 @@ import (
 	"awsx-metric/log"
 	"encoding/json"
 	"fmt"
-	"github.com/Appkube-awsx/awsx-common/authenticate"
+	"github.com/Appkube-awsx/awsx-metric-cli/auth"
 	"github.com/Appkube-awsx/awsx-metric-cli/controller"
 	"io"
 	"net/http"
@@ -103,15 +103,15 @@ func GetMetricDataWithMultipleQueries(w http.ResponseWriter, r *http.Request) {
 		}
 		json.NewEncoder(w).Encode(result)
 	} else {
-		var accessKey = ""
-		if requestData["accessKey"] != nil {
-			accessKey = requestData["accessKey"].(string)
-		}
-
-		var secretKey = ""
-		if requestData["secretKey"] != nil {
-			secretKey = requestData["secretKey"].(string)
-		}
+		//var accessKey = ""
+		//if requestData["accessKey"] != nil {
+		//	accessKey = requestData["accessKey"].(string)
+		//}
+		//
+		//var secretKey = ""
+		//if requestData["secretKey"] != nil {
+		//	secretKey = requestData["secretKey"].(string)
+		//}
 
 		var crossAccountRoleArn = ""
 		if requestData["crossAccountRoleArn"] != nil {
@@ -123,7 +123,8 @@ func GetMetricDataWithMultipleQueries(w http.ResponseWriter, r *http.Request) {
 			externalId = requestData["externalId"].(string)
 		}
 
-		authFlag, clientAuth, err := authenticate.AuthenticateData("", "", "", "", "", region, accessKey, secretKey, crossAccountRoleArn, externalId)
+		authFlag, clientAuth, err := authenticate.AuthenticateDataEnv("", "", "", "", "", region, "", "", crossAccountRoleArn, externalId)
+
 		if err != nil || !authFlag {
 			log.Error(err.Error())
 			http.Error(w, fmt.Sprintf("Exception: "+err.Error()), http.StatusInternalServerError)
@@ -236,15 +237,15 @@ func GetMetricDataWithSingleQuery(w http.ResponseWriter, r *http.Request) {
 		}
 		json.NewEncoder(w).Encode(result)
 	} else {
-		var accessKey = ""
-		if requestData["accessKey"] != nil {
-			accessKey = requestData["accessKey"].(string)
-		}
-
-		var secretKey = ""
-		if requestData["secretKey"] != nil {
-			secretKey = requestData["secretKey"].(string)
-		}
+		//var accessKey = ""
+		//if requestData["accessKey"] != nil {
+		//	accessKey = requestData["accessKey"].(string)
+		//}
+		//
+		//var secretKey = ""
+		//if requestData["secretKey"] != nil {
+		//	secretKey = requestData["secretKey"].(string)
+		//}
 
 		var crossAccountRoleArn = ""
 		if requestData["crossAccountRoleArn"] != nil {
@@ -256,7 +257,7 @@ func GetMetricDataWithSingleQuery(w http.ResponseWriter, r *http.Request) {
 			externalId = requestData["externalId"].(string)
 		}
 
-		authFlag, clientAuth, err := authenticate.AuthenticateData("", "", "", "", "", region, accessKey, secretKey, crossAccountRoleArn, externalId)
+		authFlag, clientAuth, err := authenticate.AuthenticateDataEnv("", "", "", "", "", region, "", "", crossAccountRoleArn, externalId)
 		if err != nil || !authFlag {
 			log.Error(err.Error())
 			http.Error(w, fmt.Sprintf("Exception: "+err.Error()), http.StatusInternalServerError)
